@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Voila ton ASCII</h1>
+        <pre id="ascii-art">{{ ascii_art }}</pre>
+        <button id="copy-button" data-clipboard-target="#ascii-art">Copier dans le presse-papier</button>
+        <a href="/" class="button">Retour a l'accueil</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new ClipboardJS('#copy-button');
+            const copyButton = document.getElementById('copy-button');
+            copyButton.addEventListener('click', function() {
+                alert('Copied to clipboard!');
+            });
+        });
+    </script>
+</body>
+</html>
