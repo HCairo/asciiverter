@@ -1,10 +1,12 @@
 # Importation des modules nécessaires
 from flask import Flask, request, render_template, send_file
+from flask_cors import CORS   # Import the CORS module
 from PIL import Image
 import os
 
 # Initialisation de l'application Flask
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Liste des caractères ASCII utilisés pour générer l'art ASCII
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
